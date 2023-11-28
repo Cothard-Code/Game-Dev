@@ -1,0 +1,39 @@
+Updates:
+- Changed the way that enemies are created such that it is no longer random:
+	- Enemies are now created based on consistent timers
+	- Enemy spawn rates increase after each level in each level series, and then the enemy spawn rate returns to its original rate once a new enemy is introduced before continuing to scale.
+		- i.e., The White enemy will spawn more frequently levels 1-6, and then when the Green enemy is introduced in level 7 the White enemy will spawn as often as it did in level 1, alongside the Green enemy, and then they both begin to scale again
+	- This change makes the game a lot more fun and provides much more consistent difficulty scaling, no longer allows the player to win by just holding the spacebar down, and avoids levels sometimes being impossible.
+
+- Further implementation of the shop/items:
+	- Implemented the Shop page where you can see the available items, their cost, and you can buy them
+	- Items implemented:
+		- A Full Heal Potion; one time use item that restores the player to full health 
+			- Notes:
+				- Might be too powerful for its price, I will most likely create a range of potions for various prices such as a lesser (20hp), greater (50hp), and superior (100hp) potions
+		- A Shield; one time use item that grants the player a protective shield for a set amount of time
+			- Notes:
+				- Still considering if I like this implementation/if it is too valuable
+				- May end up either changing it or creating a different shield type that has no time limit but has health/durability instead
+	- Items partially implemented:
+		- Three different rings the player can buy/wear that will make them immune from a magical effect
+		- Red Ring = Won't catch fire, Blue Ring = Won't Freeze, Green Ring = Not slowed by grass
+		- Rings would be pretty powerful and therefore pretty expensive, player could only wear one at a time
+		- Still working on this idea, but the items exist in the shop now, no functional implementation
+	- Items are saved to the save file so they won't be lost
+
+- Significant code refactoring and better grouping/management of entities and assets
+
+- Still working on:
+	- Continue developing Bosses, top priority
+	- Implement sound effects
+	- Implement more items/powerups, I have several ideas in mind still
+	- Implement the "Air" enemy type, add another Levels Series to the game
+	- Implement some aesthetic changed the player can unlock; skins, backgrounds, etc.
+	- Create and implement a tutorial; initially just instructions, eventually an involved, playable tutorial
+	- Implement an inventory page where the player will be able to view the items they have, choose their "loadout", manage aesthetic variations
+	- Implement a stats page where the player can view information about their progress
+	- Consider implementing a level select page, unsure how I want to do that yet
+	- Continue tweaking the levels design, length of game
+	- Unlock "Endless Mode" after the player has beaten the game, basically a mode like how the game was before I implemented levels. Allows player to play against themselves and try to beat their high score.
+	

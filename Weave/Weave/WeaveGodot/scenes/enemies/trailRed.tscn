@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed0.png" type="Texture" id=1]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed1.png" type="Texture" id=2]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed2.png" type="Texture" id=3]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed5.png" type="Texture" id=4]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed4.png" type="Texture" id=5]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed3.png" type="Texture" id=6]
+[ext_resource path="res://scripts/enemies/obj_trailRed.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="trailRed" type="Node2D"]
+
+[node name="obj_trailRed" type="Area2D" parent="."]
+show_behind_parent = true
+gravity_vec = Vector2( 0, 0 )
+gravity = -1024.0
+script = ExtResource( 7 )
+
+[node name="spr_trailRed" type="AnimatedSprite" parent="obj_trailRed"]
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obj_trailRed"]
+polygon = PoolVector2Array( 9, 2.7, 9, 10, 6.8, 14, -4.4, 14, -8, 10.4, -8, 1.8, -4.7, -7, -4, -12, 2, -12 )
+[connection signal="area_entered" from="obj_trailRed" to="obj_trailRed" method="_on_obj_trailRed_area_entered"]
+[connection signal="body_entered" from="obj_trailRed" to="obj_trailRed" method="_on_obj_trailRed_body_entered"]

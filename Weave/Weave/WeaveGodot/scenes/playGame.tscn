@@ -1,0 +1,330 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://image assets/backgrounds/bg.png" type="Texture" id=1]
+[ext_resource path="res://image assets/avatar/avNew.png" type="Texture" id=2]
+[ext_resource path="res://image assets/avatar/stopper.png" type="Texture" id=3]
+[ext_resource path="res://image assets/backgrounds/bg4.png" type="Texture" id=4]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectSnowflake/trailSnowflake.png" type="Texture" id=5]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectFire/trailRed4.png" type="Texture" id=6]
+[ext_resource path="res://image assets/backgrounds/bg6.png" type="Texture" id=7]
+[ext_resource path="res://fonts/weaveFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://scripts/avatar/obj_avatar.gd" type="Script" id=9]
+[ext_resource path="res://scripts/playGame.gd" type="Script" id=10]
+[ext_resource path="res://fonts/coinFont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://image assets/friendlies/friendlyBodies/coin.png" type="Texture" id=12]
+[ext_resource path="res://image assets/items/shield40.png" type="Texture" id=13]
+[ext_resource path="res://image assets/items/healPotion.png" type="Texture" id=14]
+[ext_resource path="res://scripts/avatar/shieldAv.gd" type="Script" id=15]
+[ext_resource path="res://image assets/items/shield60.png" type="Texture" id=16]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 7.11
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.054902, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[node name="playGame" type="Node2D"]
+z_index = 1
+script = ExtResource( 10 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_right = 450.0
+margin_bottom = 600.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background2" type="TextureRect" parent="."]
+visible = false
+margin_right = 450.0
+margin_bottom = 600.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background3" type="TextureRect" parent="."]
+visible = false
+margin_right = 450.0
+margin_bottom = 600.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="obj_avatar" type="KinematicBody2D" parent="."]
+position = Vector2( 225, 525 )
+z_index = 5
+script = ExtResource( 9 )
+
+[node name="spr_av" type="Sprite" parent="obj_avatar"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obj_avatar"]
+scale = Vector2( 1.6, 1.6 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="onFire_particles" type="Particles2D" parent="obj_avatar"]
+visible = false
+modulate = Color( 1, 1, 1, 0.329412 )
+z_index = 6
+process_material = SubResource( 2 )
+texture = ExtResource( 6 )
+
+[node name="onIce_particles" type="Particles2D" parent="obj_avatar"]
+visible = false
+modulate = Color( 1, 1, 1, 0.839216 )
+z_index = 6
+process_material = SubResource( 2 )
+texture = ExtResource( 5 )
+
+[node name="shieldAvatar" type="Area2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="shieldAvatar"]
+texture = ExtResource( 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="shieldAvatar"]
+polygon = PoolVector2Array( 8.5, -27.3, 14.5, -26.3, 14.5, -24.8, 21.5, -20.9, 21.5, -18.7, 26.5, -13.6, 26.5, -10.4, 28.5, -7.5, 28.5, 8.5, 27, 8.5, 22, 20.5, 20.4, 20.5, 8.5, 28.5, 1.9, 28.5, -12.5, 27.4, -12.5, 25.9, -22.5, 19.8, -22.5, 17.5, -28.5, 7.4, -28.5, -8.5, -27, -8.5, -21, -21.5, -18.7, -21.5, -16.8, -24.5, -14.4, -24.5, -8.5, -27, -8.5, -28.5, 8.5, -28.5 )
+
+[node name="obj_wallLeft" type="StaticBody2D" parent="."]
+position = Vector2( 0, 525 )
+
+[node name="spr_wall" type="Sprite" parent="obj_wallLeft"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obj_wallLeft"]
+scale = Vector2( 1.4, 1.4 )
+shape = SubResource( 3 )
+
+[node name="obj_wallRight" type="StaticBody2D" parent="."]
+position = Vector2( 450, 525 )
+
+[node name="spr_wall" type="Sprite" parent="obj_wallRight"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obj_wallRight"]
+scale = Vector2( 1.4, 1.4 )
+shape = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="scoreLabel" type="RichTextLabel" parent="CanvasLayer"]
+light_mask = 524288
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 305.0
+margin_bottom = 65.0
+custom_fonts/normal_font = ExtResource( 8 )
+text = "Score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 5.0
+margin_top = 40.0
+margin_right = 305.0
+margin_bottom = 100.0
+custom_fonts/normal_font = ExtResource( 8 )
+text = "Level:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entityCountLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+light_mask = 524288
+margin_left = 5.0
+margin_top = 75.0
+margin_right = 305.0
+margin_bottom = 135.0
+custom_fonts/normal_font = ExtResource( 8 )
+text = "Entities:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelProgress" type="ProgressBar" parent="CanvasLayer"]
+margin_left = 296.207
+margin_top = 7.9865
+margin_right = 446.207
+margin_bottom = 32.9865
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menuButton2" type="Button" parent="CanvasLayer"]
+margin_left = 330.163
+margin_top = 37.122
+margin_right = 440.163
+margin_bottom = 77.122
+custom_fonts/font = ExtResource( 8 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_health" type="ProgressBar" parent="CanvasLayer"]
+margin_left = 165.0
+margin_top = 555.0
+margin_right = 285.0
+margin_bottom = 573.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shieldButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 325.514
+margin_top = 553.576
+margin_right = 365.514
+margin_bottom = 593.576
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="potionButton" type="TextureButton" parent="CanvasLayer"]
+margin_left = 374.902
+margin_top = 550.209
+margin_right = 404.902
+margin_bottom = 580.209
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCompleteBG" type="TextureRect" parent="CanvasLayer"]
+visible = false
+margin_right = 450.0
+margin_bottom = 600.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCompleteContainer" type="CenterContainer" parent="CanvasLayer"]
+visible = false
+margin_right = 450.0
+margin_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCompleteText" type="Label" parent="CanvasLayer/levelCompleteContainer"]
+visible = false
+margin_left = 50.0
+margin_top = 208.0
+margin_right = 400.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 350, 0 )
+custom_fonts/font = ExtResource( 8 )
+text = "level"
+align = 1
+autowrap = true
+
+[node name="checkpointReachedText" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 50.0
+margin_top = 375.0
+margin_right = 400.0
+margin_bottom = 409.0
+rect_min_size = Vector2( 350, 0 )
+custom_fonts/font = ExtResource( 8 )
+text = "level"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelCompleteButton" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 186.0
+margin_top = 305.0
+margin_right = 264.0
+margin_bottom = 345.0
+custom_fonts/font = ExtResource( 8 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelFailedButton" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 186.0
+margin_top = 300.0
+margin_right = 264.0
+margin_bottom = 340.0
+custom_fonts/font = ExtResource( 8 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menuButton" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 169.163
+margin_top = 365.122
+margin_right = 279.163
+margin_bottom = 405.122
+custom_fonts/font = ExtResource( 8 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinTexture" type="TextureRect" parent="CanvasLayer"]
+margin_top = 560.0
+margin_right = 30.0
+margin_bottom = 590.0
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinLabel" type="RichTextLabel" parent="CanvasLayer"]
+light_mask = 524288
+margin_left = 28.0
+margin_top = 565.0
+margin_right = 112.0
+margin_bottom = 595.0
+custom_fonts/normal_font = ExtResource( 11 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/menuButton2" to="." method="_on_menuButton2_pressed"]
+[connection signal="pressed" from="CanvasLayer/shieldButton" to="." method="_on_shieldButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/potionButton" to="." method="_on_potionButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/levelCompleteButton" to="." method="_on_levelCompleteButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/levelFailedButton" to="." method="_on_levelFailedButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/menuButton" to="." method="_on_menuButton_pressed"]

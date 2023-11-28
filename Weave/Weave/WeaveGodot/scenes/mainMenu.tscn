@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/buttons/shopButton.gd" type="Script" id=1]
+[ext_resource path="res://image assets/menuElements/text/textTitleBehind.png" type="Texture" id=2]
+[ext_resource path="res://image assets/menuElements/text/textTitle.png" type="Texture" id=5]
+[ext_resource path="res://image assets/backgrounds/bg.png" type="Texture" id=6]
+[ext_resource path="res://scripts/buttons/playButton.gd" type="Script" id=7]
+[ext_resource path="res://scripts/titleBehind.gd" type="Script" id=8]
+[ext_resource path="res://scripts/mainMenu.gd" type="Script" id=9]
+[ext_resource path="res://scripts/buttons/clearSaveButton.gd" type="Script" id=10]
+[ext_resource path="res://fonts/weaveFont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://fonts/coinFont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://image assets/friendlies/friendlyBodies/coin.png" type="Texture" id=13]
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="TextureRect" parent="CanvasLayer"]
+margin_right = 450.0
+margin_bottom = 600.0
+texture = ExtResource( 6 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+margin_right = 450.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clearSaveButton" type="Button" parent="CanvasLayer"]
+margin_left = 54.0
+margin_top = 525.0
+margin_right = 396.0
+margin_bottom = 565.0
+custom_fonts/font = ExtResource( 11 )
+text = "Delete Save file"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="titleBehind" type="TextureRect" parent="CanvasLayer"]
+margin_left = 46.6165
+margin_top = 72.0435
+margin_right = 396.617
+margin_bottom = 147.044
+texture = ExtResource( 2 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="titleText" type="TextureRect" parent="CanvasLayer"]
+margin_left = 48.0
+margin_top = 72.0
+margin_right = 398.0
+margin_bottom = 147.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playButton" type="Button" parent="CanvasLayer"]
+margin_left = 159.378
+margin_top = 198.811
+margin_right = 284.378
+margin_bottom = 238.811
+custom_fonts/font = ExtResource( 11 )
+action_mode = 0
+text = "Play"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shopButton" type="Button" parent="CanvasLayer"]
+margin_left = 159.378
+margin_top = 267.0
+margin_right = 284.378
+margin_bottom = 307.0
+custom_fonts/font = ExtResource( 11 )
+action_mode = 0
+text = "Shop"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tutorialButton" type="Button" parent="CanvasLayer"]
+margin_left = 130.363
+margin_top = 335.676
+margin_right = 330.363
+margin_bottom = 375.676
+custom_fonts/font = ExtResource( 11 )
+text = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinTexture" type="TextureRect" parent="CanvasLayer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinsLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 48.0
+margin_top = 25.0
+margin_right = 223.0
+margin_bottom = 55.0
+custom_fonts/normal_font = ExtResource( 12 )
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/clearSaveButton" to="CanvasLayer/clearSaveButton" method="_on_clearSaveButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/playButton" to="CanvasLayer/playButton" method="_on_playButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/shopButton" to="CanvasLayer/shopButton" method="_on_shopButton_pressed"]

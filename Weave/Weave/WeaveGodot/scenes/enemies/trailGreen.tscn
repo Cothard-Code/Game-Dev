@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/enemies/obj_trailGreen.gd" type="Script" id=1]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectVines/vine4.png" type="Texture" id=2]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectVines/vine3.png" type="Texture" id=3]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectVines/vine2.png" type="Texture" id=4]
+[ext_resource path="res://image assets/enemies/enemyEffects/effectVines/vine1.png" type="Texture" id=5]
+
+[node name="trailGreen" type="Node2D"]
+
+[node name="obj_trailGreen" type="Area2D" parent="."]
+show_behind_parent = true
+gravity_vec = Vector2( 0, 0 )
+gravity = -1024.0
+script = ExtResource( 1 )
+
+[node name="vineSpr1" type="Sprite" parent="obj_trailGreen"]
+texture = ExtResource( 5 )
+
+[node name="vineSpr2" type="Sprite" parent="obj_trailGreen"]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="vineSpr3" type="Sprite" parent="obj_trailGreen"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="vineSpr4" type="Sprite" parent="obj_trailGreen"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obj_trailGreen"]
+polygon = PoolVector2Array( 16, 16, -14, 16, -16, 13.2, -16, -16, 15.8, -16 )
+[connection signal="body_entered" from="obj_trailGreen" to="obj_trailGreen" method="_on_obj_trailGreen_body_entered"]
+[connection signal="body_exited" from="obj_trailGreen" to="obj_trailGreen" method="_on_obj_trailGreen_body_exited"]

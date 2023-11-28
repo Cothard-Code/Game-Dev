@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://image assets/enemies/enemyBodies/enemyWhite.png" type="Texture" id=1]
+[ext_resource path="res://scripts/enemies/obj_enemyWhite.gd" type="Script" id=2]
+
+[node name="enemyWhite" type="Node2D"]
+
+[node name="obj_enemyWhite" type="Area2D" parent="."]
+z_index = 3
+collision_layer = 2147483649
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="obj_enemyWhite"]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obj_enemyWhite"]
+polygon = PoolVector2Array( 13.5, -12, 14.6, 2.5, 13.1, 2.5, 10.1, 12.5, 6.4, 12.5, 3.5, 9.6, -0.6, 13.8, -2.5, 13, -2.5, 11.5, -3.9, 9.6, -9, 12.7, -10.5, 11.9, -10.5, 10.3, -14.5, 0.3, -14.5, -13.5, -12.5, -13.5, -12.5, -14.5, 13.5, -14.5 )
+[connection signal="area_entered" from="obj_enemyWhite" to="obj_enemyWhite" method="_on_obj_enemyWhite_area_entered"]
+[connection signal="body_entered" from="obj_enemyWhite" to="obj_enemyWhite" method="_on_obj_enemyWhite_body_entered"]

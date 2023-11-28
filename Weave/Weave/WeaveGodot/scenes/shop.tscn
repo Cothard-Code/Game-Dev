@@ -1,0 +1,333 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://image assets/backgrounds/bg.png" type="Texture" id=1]
+[ext_resource path="res://fonts/coinFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/buttons/backButton.gd" type="Script" id=3]
+[ext_resource path="res://image assets/items/shield60.png" type="Texture" id=4]
+[ext_resource path="res://image assets/items/healPotion.png" type="Texture" id=5]
+[ext_resource path="res://fonts/titleFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://image assets/friendlies/friendlyBodies/coin.png" type="Texture" id=7]
+[ext_resource path="res://scenes/shop.gd" type="Script" id=8]
+[ext_resource path="res://image assets/items/redRing.png" type="Texture" id=9]
+[ext_resource path="res://image assets/items/greenRing.png" type="Texture" id=10]
+[ext_resource path="res://image assets/items/blueRing.png" type="Texture" id=11]
+
+[node name="shop" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="shopBG" type="TextureRect" parent="CanvasLayer"]
+margin_right = 450.0
+margin_bottom = 600.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backButton" type="Button" parent="CanvasLayer"]
+margin_right = 88.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinTexture" type="TextureRect" parent="CanvasLayer"]
+margin_top = 570.0
+margin_right = 30.0
+margin_bottom = 600.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 35.0
+margin_top = 570.0
+margin_right = 185.0
+margin_bottom = 600.0
+custom_fonts/normal_font = ExtResource( 2 )
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shopLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 136.599
+margin_top = 24.0
+margin_right = 316.599
+margin_bottom = 99.0
+custom_fonts/normal_font = ExtResource( 6 )
+text = "SHOP"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="potion" type="Control" parent="CanvasLayer"]
+margin_left = 128.512
+margin_top = 287.262
+margin_right = 168.512
+margin_bottom = 327.262
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="potionItem" type="TextureRect" parent="CanvasLayer/potion"]
+margin_left = -8.51196
+margin_top = -107.262
+margin_right = 51.488
+margin_bottom = -47.2619
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="potionCoin" type="TextureRect" parent="CanvasLayer/potion"]
+margin_left = -27.8407
+margin_top = -139.771
+margin_right = 2.15933
+margin_bottom = -109.771
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="potionPrice" type="RichTextLabel" parent="CanvasLayer/potion"]
+margin_left = 8.08728
+margin_top = -139.663
+margin_right = 65.0873
+margin_bottom = -109.663
+custom_fonts/normal_font = ExtResource( 2 )
+text = "x10"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="potionBuy" type="Button" parent="CanvasLayer/potion"]
+margin_left = -11.97
+margin_top = -37.2619
+margin_right = 57.03
+margin_bottom = -2.26195
+custom_fonts/font = ExtResource( 2 )
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shield" type="Control" parent="CanvasLayer"]
+margin_left = 279.702
+margin_top = 288.522
+margin_right = 319.702
+margin_bottom = 328.522
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shieldItem" type="TextureRect" parent="CanvasLayer/shield"]
+margin_left = -7.18262
+margin_top = -106.522
+margin_right = 52.8174
+margin_bottom = -46.5219
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shieldBuy" type="Button" parent="CanvasLayer/shield"]
+margin_left = -12.1304
+margin_top = -38.5219
+margin_right = 56.8696
+margin_bottom = -3.52193
+custom_fonts/font = ExtResource( 2 )
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shieldCoin" type="TextureRect" parent="CanvasLayer/shield"]
+margin_left = -19.0212
+margin_top = -139.771
+margin_right = 10.9788
+margin_bottom = -109.771
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shieldPrice" type="RichTextLabel" parent="CanvasLayer/shield"]
+margin_left = 13.236
+margin_top = -139.923
+margin_right = 70.236
+margin_bottom = -109.923
+custom_fonts/normal_font = ExtResource( 2 )
+text = "x10"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringRed" type="Control" parent="CanvasLayer"]
+margin_left = 341.439
+margin_top = 527.907
+margin_right = 381.439
+margin_bottom = 567.907
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringRedItem" type="TextureRect" parent="CanvasLayer/ringRed"]
+margin_left = -10.9623
+margin_top = -94.6627
+margin_right = 49.0377
+margin_bottom = -49.6627
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringRedBuy" type="Button" parent="CanvasLayer/ringRed"]
+margin_left = -14.6503
+margin_top = -43.5615
+margin_right = 54.3497
+margin_bottom = -8.56152
+custom_fonts/font = ExtResource( 2 )
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringRedCoin" type="TextureRect" parent="CanvasLayer/ringRed"]
+margin_left = -30.3606
+margin_top = -130.952
+margin_right = -0.360565
+margin_bottom = -100.952
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringRedPrice" type="RichTextLabel" parent="CanvasLayer/ringRed"]
+margin_left = 1.66461
+margin_top = -133.369
+margin_right = 78.6646
+margin_bottom = -103.369
+custom_fonts/normal_font = ExtResource( 2 )
+text = "x175"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringBlue" type="Control" parent="CanvasLayer"]
+margin_left = 205.439
+margin_top = 527.907
+margin_right = 245.439
+margin_bottom = 567.907
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringBlueItem" type="TextureRect" parent="CanvasLayer/ringBlue"]
+margin_left = -10.9623
+margin_top = -94.6627
+margin_right = 49.0377
+margin_bottom = -49.6627
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringBlueBuy" type="Button" parent="CanvasLayer/ringBlue"]
+margin_left = -14.6503
+margin_top = -43.5615
+margin_right = 54.3497
+margin_bottom = -8.56152
+custom_fonts/font = ExtResource( 2 )
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringBlueCoin" type="TextureRect" parent="CanvasLayer/ringBlue"]
+margin_left = -30.3606
+margin_top = -130.952
+margin_right = -0.360565
+margin_bottom = -100.952
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringBluePrice" type="RichTextLabel" parent="CanvasLayer/ringBlue"]
+margin_left = 0.404724
+margin_top = -133.369
+margin_right = 77.4047
+margin_bottom = -103.369
+custom_fonts/normal_font = ExtResource( 2 )
+text = "x125"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringGreen" type="Control" parent="CanvasLayer"]
+margin_left = 76.9266
+margin_top = 531.687
+margin_right = 116.927
+margin_bottom = 571.687
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringGreenItem" type="TextureRect" parent="CanvasLayer/ringGreen"]
+margin_left = -10.9623
+margin_top = -94.6627
+margin_right = 49.0377
+margin_bottom = -49.6627
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringGreenBuy" type="Button" parent="CanvasLayer/ringGreen"]
+margin_left = -14.6503
+margin_top = -43.5615
+margin_right = 54.3497
+margin_bottom = -8.56152
+custom_fonts/font = ExtResource( 2 )
+text = "Buy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringGreenCoin" type="TextureRect" parent="CanvasLayer/ringGreen"]
+margin_left = -30.3606
+margin_top = -130.952
+margin_right = -0.360565
+margin_bottom = -100.952
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ringGreenPrice" type="RichTextLabel" parent="CanvasLayer/ringGreen"]
+margin_left = 0.404724
+margin_top = -133.369
+margin_right = 77.4047
+margin_bottom = -103.369
+custom_fonts/normal_font = ExtResource( 2 )
+text = "x75"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/backButton" to="CanvasLayer/backButton" method="_on_backButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/potion/potionBuy" to="." method="_on_potionBuy_pressed"]
+[connection signal="pressed" from="CanvasLayer/shield/shieldBuy" to="." method="_on_shieldBuy_pressed"]
