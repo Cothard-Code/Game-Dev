@@ -15,8 +15,8 @@ Project repo for the game Weave
 
 **Main Menu:**
 
-![Main Menu](/screenshots/Menu.png)
+![Main Menu](/Weave/Weave/screenshots/Menu.png)
 
 **Tutorial:**
 
-![Tutorial1](/screenshots/Tutorial1.png) ![Tutorial2](/screenshots/Tutorial2.png) ![Tutorial3](/screenshots/Tutorial3.png)
+![Tutorial1](/Weave/Weave/screenshots/Tutorial1.png) ![Tutorial2](/Weave/Weave/screenshots/Tutorial2.png) ![Tutorial3](/Weave/Weave/screenshots/Tutorial3.png)
